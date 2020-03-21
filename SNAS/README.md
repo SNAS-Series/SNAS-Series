@@ -7,7 +7,7 @@ Python >= 3.5.5, PyTorch == 0.4, torchvision == 0.2.0
 
 CIFAR-10 can be automatically downloaded by torchvision, ImageNet needs to be downloaded manually.
 
-## Architecture search
+### Architecture search
 ```
 python train_search.py --snas --epochs 150 --seed 6 --layer 8 --init_channels 16 --temp 1 \
 --temp_min 0.03 --nsample 1 --temp_annealing --resource_efficient \
@@ -15,7 +15,7 @@ python train_search.py --snas --epochs 150 --seed 6 --layer 8 --init_channels 16
 --loss --remark "snas_order_layer_8_batch_64_drop_0.3_error_lnR_1e-2_reparam_gpu_1" &
 ```
 
-## Architecture evaluation (using full-sized models)
+### Architecture evaluation (using full-sized models)
 ```
 python train.py --auxiliary --cutout --arch {arch}   # CIFAR-10 (DARTS-like architecture)
 
@@ -24,3 +24,12 @@ python train_edge_all.py --auxiliary --cutout --arch {arch}  # CIFAR-10 (all-edg
 python train_imagenet.py --auxiliary --arch {arch}    # ImageNet
 ```
 
+### Citation
+If you find our codes or trined models useful in your research, please consider to star our repo and cite our paper:
+
+  @article{xie2018snas,
+    title={SNAS: stochastic neural architecture search},
+    author={Xie, Sirui and Zheng, Hehui and Liu, Chunxiao and Lin, Liang},
+    journal={arXiv preprint arXiv:1812.09926},
+    year={2018}
+  }
