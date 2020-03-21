@@ -1,3 +1,12 @@
+# DSNAS
+
+This repository contains the PyTorch implementation of the paper **SNAS: 
+stochastic neural architecture search**, ICLR 2019.
+
+By Xie Sirui, Zheng Hehui, Liu Chunxiao, Lin Liang.
+
+[Paper-arxiv](https://arxiv.org/abs/1812.09926)
+
 ## Requirements
 ```
 Python >= 3.5.5, PyTorch == 0.4, torchvision == 0.2.0
