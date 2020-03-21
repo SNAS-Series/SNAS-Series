@@ -12,19 +12,20 @@ def init_dist(backend='nccl',
     if mp.get_start_method(allow_none=True) is None:
         mp.set_start_method('spawn')
     
-    node_list = os.environ['SLURM_NODELIST']
-    if '[' in node_list:
-        beg = node_list.find('[')
-        pos1 = node_list.find('-', beg)
-        if pos1 < 0:
-            pos1 = 1000
-        pos2 = node_list.find(',', beg)
-        if pos2 < 0:
-            pos2 = 1000
-        node_list = node_list[:min(pos1, pos2)].replace('[', '')
-    addr = node_list[8:].replace('-', '.')
-
-    os.environ['MASTER_ADDR'] = addr
+#    node_list = os.environ['SLURM_NODELIST']
+#    if '[' in node_list:
+#        beg = node_list.find('[')
+#        pos1 = node_list.find('-', beg)
+#        if pos1 < 0:
+#            pos1 = 1000
+#        pos2 = node_list.find(',', beg)
+#        if pos2 < 0:
+#            pos2 = 1000
+#        node_list = node_list[:min(pos1, pos2)].replace('[', '')
+#    addr = node_list[8:].replace('-', '.')
+#
+#    os.environ['MASTER_ADDR'] = addr
+    os.environ['MASTER_ADDR'] = master_ip
     os.environ['MASTER_PORT'] = str(port)
     rank = int(os.environ['RANK'])
     world_size = int(os.environ['WORLD_SIZE'])
