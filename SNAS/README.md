@@ -27,9 +27,9 @@ python train_imagenet.py --auxiliary --arch {arch}    # ImageNet
 ### Citation
 If you find our codes or trined models useful in your research, please consider to star our repo and cite our paper:
 
-  @article{xie2018snas,
-    title={SNAS: stochastic neural architecture search},
-    author={Xie, Sirui and Zheng, Hehui and Liu, Chunxiao and Lin, Liang},
-    journal={arXiv preprint arXiv:1812.09926},
-    year={2018}
-  }
+    @article{xie2018snas,
+      title={SNAS: stochastic neural architecture search},
+      author={Xie, Sirui and Zheng, Hehui and Liu, Chunxiao and Lin, Liang},
+      journal={arXiv preprint arXiv:1812.09926},
+      year={2018}
+    }
