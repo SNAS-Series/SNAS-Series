@@ -21,7 +21,7 @@ By Shoukang Hu*, Sirui Xie*, Hehui Zheng, Chunxiao Liu, Jianping Shi, Xunying Li
 * Install [PyTorch](http://pytorch.org/)
 * Clone the repo:
   ```
-  git clone https://github.com/skhu101/SNAS-Series.git
+  git clone https://github.com/SNAS-Series/SNAS-Series.git
   ```
 
 ## Requirements
