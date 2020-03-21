@@ -15,3 +15,4 @@ Direct Neural Architecture Search without Parameter Retraining**, CVPR 2020.
 By Shoukang Hu*, Sirui Xie*, Hehui Zheng, Chunxiao Liu, Jianping Shi, Xunying Liu, Dahua Lin.
 
 [Paper-arxiv](https://arxiv.org/abs/2002.09128)
+
