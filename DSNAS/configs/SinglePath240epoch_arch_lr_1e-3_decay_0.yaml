@@ -1,0 +1,31 @@
+TRAIN:
+    model: singlepath
+    workers: 15
+    batch_size: 1024
+    epochs: 240
+
+    lr_mode: cosine
+    base_lr: 0.5
+    targetlr: 0.0
+    power: 1
+    warmup_mode: linear
+    warmup_lr: 0.0001
+    warmup_epochs: 5
+
+    momentum: 0.9
+    weight_decay: 0.00004
+    arch_learning_rate: 0.001
+    arch_weight_decay: 0.000
+
+    using_moving_average : True
+    last_gamma : True
+    using_bn: True
+
+    print_freq: 100
+    model_dir: ckpts_1_5_x
+
+    train_root: /mnt/lustre/share/images/train
+    train_source: /mnt/lustre/share/images/meta/train.txt
+    val_root: /mnt/lustre/share/images/val
+    val_source: /mnt/lustre/share/images/meta/val.txt
+

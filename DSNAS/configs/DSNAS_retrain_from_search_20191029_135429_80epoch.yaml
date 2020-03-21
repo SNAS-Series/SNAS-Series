@@ -1,0 +1,30 @@
+TRAIN:
+    model: singlepath
+    workers: 15
+    batch_size: 1024
+    epochs: 240
+
+    lr_mode : cosine
+    base_lr: 0.34
+    targetlr: 0.0
+    power: 1
+    warmup_mode: linear
+    warmup_lr: 0.0001
+    warmup_epochs: 5
+
+    momentum: 0.9
+    weight_decay: 0.00004
+
+    using_moving_average : True
+    last_gamma : True
+    using_bn: True
+
+    print_freq: 100
+    model_dir: ckpts_1_5_x
+    checkpoint_path: 2019-10-29/search-EXP-20191029-135429-imagenet_epo_240_layer_20_batch_1024_lr_0.5_seed_24_early_fix_arch_flops_loss_1e-06_search_add_bnaffine_bneps_1e-2_arch_lr_1e-3/model.pth-80
+
+    train_root: /mnt/lustre/share/images/train
+    train_source: /mnt/lustre/share/images/meta/train.txt
+    val_root: /mnt/lustre/share/images/val
+    val_source: /mnt/lustre/share/images/meta/val.txt
+
