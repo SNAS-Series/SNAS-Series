@@ -44,7 +44,7 @@ python train_edge_all.py --auxiliary --cutout --arch {arch_edge_all}  # CIFAR-10
 
 python train_imagenet.py --auxiliary --arch {arch}    # ImageNet
 ```
-Note that {arch}, {arch_edge_all} could be SNAS_mild, SNAS_mild_edge_all. 
+Note that {arch}, {arch_edge_all} could be SNAS_mild, SNAS_mild_edge_all in genotypes.py. 
 
 Tensorboard visualization:
 ```
