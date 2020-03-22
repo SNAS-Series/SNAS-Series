@@ -61,6 +61,7 @@ Note that all the experiments above will save the tensorboard log file in runs/ 
 | Model | Top-1 | Download | MD5 |  
 | :----:  | :--: | :--:  | :--: |  
 |cifar-10 mild constraint | 97.02% | [[Google Drive]](https://drive.google.com/open?id=1tjy4Nx7rSv6gc8efQcJAaEbDcdawT-6c)  [[Baidu Pan (pin:an86)]](https://pan.baidu.com/s/10ATRhFuB1bxysLfCYUhl_Q)|aebc72d18b2c79925fafcebcd68ec745|    
+
 Evaluate the trained model:
 ```
 python test.py --auxiliary --cutout --arch {arch}   # CIFAR-10 (DARTS-like architecture)
