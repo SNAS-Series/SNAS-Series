@@ -64,7 +64,7 @@ Note that all the experiments above will save the tensorboard log file in runs/ 
 
 Evaluate the trained model:
 ```
-python test.py --auxiliary --model_path --arch {model_path}   # CIFAR-10 (DARTS-like architecture)
+python test.py --auxiliary --model_path {model_path}   # CIFAR-10 (DARTS-like architecture)
 
 python test_edge_all.py --auxiliary --model_path {model_path}  # CIFAR-10 (all-edge)
 ```
