@@ -43,13 +43,9 @@ Note that we formulate the resource constraint with three methods, i.e., reparam
 
 ## Architecture evaluation (using full-sized models)
 ```
-python train.py --auxiliary --cutout --arch {arch}   # CIFAR-10 (DARTS-like architecture)
-
-python train_edge_all.py --auxiliary --cutout --arch {arch_edge_all}  # CIFAR-10 (all-edge)
-
-python train_imagenet.py --auxiliary --arch {arch}    # ImageNet
+python train_edge_all.py --auxiliary --cutout --arch {arch_edge_all}
 ```
-Note that {arch}, {arch_edge_all} could be SNAS_mild, SNAS_mild_edge_all in genotypes.py. 
+Note that {arch_edge_all} could be SNAS_mild_edge_all, SNAS_moderate_edge_all, SNAS_aggresive_edge_all in genotypes.py. 
 
 Tensorboard visualization:
 ```
@@ -64,9 +60,7 @@ Note that all the experiments above will save the tensorboard log file in runs/ 
 
 Evaluate the trained model:
 ```
-python test.py --auxiliary --arch {arch} --model_path {model_path}   # CIFAR-10 (DARTS-like architecture)
-
-python test_edge_all.py --auxiliary --arch {arch} --model_path {model_path}  # CIFAR-10 (all-edge)
+python test_edge_all.py --auxiliary --arch {arch} --model_path {model_path}
 ```
 
 ## Citation
