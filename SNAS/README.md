@@ -21,7 +21,7 @@ Python >= 3.5.5, PyTorch == 0.4, torchvision == 0.2.0
 
 CIFAR-10 can be automatically downloaded by torchvision, ImageNet needs to be downloaded manually.
 
-## Usage
+## Architecture Search
 Single GPU setup to search the architecture with 8 cells:
 ```
 python train_search.py --snas --epochs 150 --seed 6 --layer 8 --init_channels 16 --temp 1 \
