@@ -57,6 +57,12 @@ tensorboard --logdir=runs/ --port={port_num}
 ```
 Note that all the experiments above will save the tensorboard log file in runs/ directory
 
+### Trained models
+| Model | Top-1<sup>*</sup> | Download | MD5 |  
+| :----:  | :--: | :--:  | :--:  | :--:  |  
+|mild constraint | 97.02% | [[Google Drive]](https://drive.google.com/open?id=1tjy4Nx7rSv6gc8efQcJAaEbDcdawT-6c)  [[Baidu Pan (pin:an86)]](https://pan.baidu.com/s/10ATRhFuB1bxysLfCYUhl_Q)|aebc72d18b2c79925fafcebcd68ec745|   
+
+
 ## Citation
 If you find our codes or trined models useful in your research, please consider to star our repo and cite our paper:
 
