@@ -45,7 +45,7 @@ Note that we formulate the resource constraint with three methods, i.e., reparam
 ```
 python train_edge_all.py --auxiliary --cutout --arch {arch_edge_all}
 ```
-Note that {arch_edge_all} could be SNAS_mild_edge_all, SNAS_moderate_edge_all, SNAS_aggresive_edge_all in genotypes.py. 
+Note that {arch_edge_all} could be SNAS_mild_edge_all, SNAS_moderate_edge_all, SNAS_aggressive_edge_all in genotypes.py. 
 
 Tensorboard visualization:
 ```
