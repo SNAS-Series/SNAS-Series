@@ -53,7 +53,7 @@ Note that you need to add your current model path into the checkpoint_path of {c
 Retrain:
 ```shell
 python -m torch.distributed.launch --nproc_per_node=8 train_imagenet_child.py \
---SinglePath --retrain --bn_affine --reset_bn_stat --config configs/{config_name} \
+--SinglePath --retrain --bn_affine --reset_bn_stat --seed 48 --config configs/{config_name} \
 --remark {remark_name} &
 ```
 Note that you need to add your current model path into the checkpoint_path of {config_name} (refer to configs/DSNAS_retrain_from_search_20191029_135429_80epoch.yaml)
