@@ -39,13 +39,13 @@ By Shoukang Hu*, Sirui Xie*, Hehui Zheng, Chunxiao Liu, Jianping Shi, Xunying Li
 Search:
 ```shell
 python -m torch.distributed.launch --nproc_per_node=8 train_imagenet.py \
---SinglePath --bn_affine --flops_loss --flops_loss_coef 1e-6 --gen_max_child --early_fix_arch --config configs/SinglePath240epoch_arch_lr_1e-3_decay_0.yaml \
+--SinglePath --bn_affine --flops_loss --flops_loss_coef 1e-6 --seed 48 --gen_max_child --early_fix_arch --config configs/SinglePath240epoch_arch_lr_1e-3_decay_0.yaml \
 --remark 'search_arch_lr_1e-3_decay_0' &
 ```
 After searching the Supernet with the early-stop strategy for {num} (default value: 80) peochs, we continue the searching stage with the following command: 
 ```shell
 python -m torch.distributed.launch --nproc_per_node=8 train_imagenet_child.py \
---SinglePath --bn_affine --reset_bn_stat --config configs/{config_name} \
+--SinglePath --bn_affine --reset_bn_stat --seed 48 --config configs/{config_name} \
 --remark {remark_name} &
 ```
 Note that you need to add your current model path into the checkpoint_path of {config_name} (refer to configs/DSNAS_search_from_search_20191029_135429_80epoch.yaml)
