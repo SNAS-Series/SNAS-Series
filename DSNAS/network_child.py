@@ -55,25 +55,25 @@ class ShuffleNetV2_OneShot(nn.Module):
 
                 blocks = nn.ModuleList()
                 if pos == 0:
-                    blocks.append(Shufflenet(inp, outp, mid_channels=mid_channels, ksize=3, stride=stride, bn_affine=self.bn_affine), bn_eps=self.bn_eps)
+                    blocks.append(Shufflenet(inp, outp, mid_channels=mid_channels, ksize=3, stride=stride, bn_affine=self.bn_affine, bn_eps=self.bn_eps))
                     blocks.append(None)
                     blocks.append(None)
                     blocks.append(None)
                 elif pos == 1:
                     blocks.append(None)
-                    blocks.append(Shufflenet(inp, outp, mid_channels=mid_channels, ksize=5, stride=stride, bn_affine=self.bn_affine), bn_eps=self.bn_eps)
+                    blocks.append(Shufflenet(inp, outp, mid_channels=mid_channels, ksize=5, stride=stride, bn_affine=self.bn_affine, bn_eps=self.bn_eps))
                     blocks.append(None)
                     blocks.append(None)
                 elif pos == 2:
                     blocks.append(None)
                     blocks.append(None)
-                    blocks.append(Shufflenet(inp, outp, mid_channels=mid_channels, ksize=7, stride=stride, bn_affine=self.bn_affine)), bn_eps=self.bn_eps)
+                    blocks.append(Shufflenet(inp, outp, mid_channels=mid_channels, ksize=7, stride=stride, bn_affine=self.bn_affine, bn_eps=self.bn_eps))
                     blocks.append(None)
                 elif pos == 3:
                     blocks.append(None)
                     blocks.append(None)
                     blocks.append(None)
-                    blocks.append(Shuffle_Xception(inp, outp, mid_channels=mid_channels, stride=stride, bn_affine=self.bn_affine), bn_eps=self.bn_eps)
+                    blocks.append(Shuffle_Xception(inp, outp, mid_channels=mid_channels, stride=stride, bn_affine=self.bn_affine, bn_eps=self.bn_eps))
                     
                 input_channel = output_channel
                 self.features += [blocks]
