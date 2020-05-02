@@ -66,9 +66,11 @@ python test_edge_all.py --auxiliary --arch {arch} --model_path {model_path}
 ## Citation
 If you find our codes or trined models useful in your research, please consider to star our repo and cite our paper:
 
-    @article{xie2018snas,
-      title={SNAS: stochastic neural architecture search},
-      author={Xie, Sirui and Zheng, Hehui and Liu, Chunxiao and Lin, Liang},
-      journal={arXiv preprint arXiv:1812.09926},
-      year={2018}
+    @inproceedings{
+        xie2018snas,
+        title={{SNAS}: stochastic neural architecture search},
+        author={Sirui Xie and Hehui Zheng and Chunxiao Liu and Liang Lin},
+        booktitle={International Conference on Learning Representations},
+        year={2019},
+        url={https://openreview.net/forum?id=rylqooRqK7},
     }
