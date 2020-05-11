@@ -50,6 +50,7 @@ parser.add_argument('--bn_affine', action='store_true', default=False, help='bn 
 parser.add_argument('--reset_bn_stat', action='store_true', default=False, help='reset bn statistics')
 parser.add_argument('--reset_bn_affine', action='store_true', default=False, help='reset bn affine param and running statistics')
 parser.add_argument('--bn_eps', type=float, default=1e-2, help='batch normalization epison')
+parser.add_argument('--use_dropout', action='store_true', default=False, help='dropout flag')
 
 parser.add_argument('--retrain', action='store_true', default=False, help='retrain the model from scratch')
 parser.add_argument('--gen_max_child', action='store_true', default=False, help='generate child network by argmax(alpha)')

@@ -51,6 +51,8 @@ parser.add_argument('--bn_eps', type=float, default=1e-2, help='batch normalizat
 parser.add_argument('--early_fix_arch', action='store_true', default=False, help='bn affine flag')
 parser.add_argument('--flops_loss', action='store_true', default=False, help='flops loss flag')
 parser.add_argument('--flops_loss_coef', type=float, default=1e-5, help='flops loss coefficient')
+parser.add_argument('--pretrain_epoch', type=int, default=0, help='pretrain epochs')
+parser.add_argument('--use_dropout', action='store_true', default=False, help='dropout flag')
 
 parser.add_argument('--random_sample', action='store_true', default=False, help='true if sample randomly')
 parser.add_argument('--gen_max_child', action='store_true', default=False, help='generate child network by argmax(alpha)')
@@ -142,7 +144,7 @@ def main():
 
     # auto resume from a checkpoint
     remark = 'imagenet_'
-    remark += 'epo_' + str(args.epochs) + '_layer_' + str(args.layers) + '_batch_' + str(args.batch_size) + '_lr_' + str(args.base_lr)  + '_seed_' + str(args.seed)
+    remark += 'epo_' + str(args.epochs) + '_layer_' + str(args.layers) + '_batch_' + str(args.batch_size) + '_lr_' + str(args.base_lr)  + '_seed_' + str(args.seed) + '_pretrain_' + str(args.pretrain_epoch)
 
     if args.early_fix_arch:
         remark += '_early_fix_arch'  
@@ -334,7 +336,7 @@ def train(train_loader, model, criterion, optimizer, arch_optimizer, lr_schedule
         optimizer.zero_grad()
 
         if args.SinglePath:
-            if not args.random_sample:
+            if not args.random_sample and epoch >= args.pretrain_epoch:
                  arch_optimizer.step()
         arch_optimizer.zero_grad()
 

@@ -130,7 +130,8 @@ class ShuffleNetV2_OneShot(nn.Module):
         x = self.conv_last(x)
         x = self.globalpool(x)
         
-        x = self.dropout(x)
+        if self.args.use_dropout:
+            x = self.dropout(x)
         x = x.contiguous().view(-1, self.stage_out_channels[-1])
         x = self.classifier(x)
 
