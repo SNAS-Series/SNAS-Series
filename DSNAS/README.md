@@ -49,7 +49,7 @@ python -m torch.distributed.launch --nproc_per_node=8 train_imagenet.py \
 --SinglePath --bn_affine --flops_loss --flops_loss_coef 1e-6 --seed 48 --use_dropout --pretrain_epoch {pretrain_num} --gen_max_child --early_fix_arch --config configs/SinglePath240epoch_arch_lr_1e-3_decay_0.yaml \
 --remark 'search_arch_lr_1e-3_decay_0' &
 ```
-Note that {pretrain_num} can be set as 15 or 30, and you can disable dropout layer befrore the linear output layer by not using --use_dropout.
+Note that {pretrain_num} can be set as 15 or 30, and you can disable the dropout layer befrore the linear output layer by not using --use_dropout.
 
 After searching the Supernet with the early-stop strategy for {num} (default value: 80) peochs, we continue the searching stage with the following command: 
 ```shell
