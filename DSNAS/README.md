@@ -90,7 +90,7 @@ where {config_name} could be DSNASsearch240.yaml, DSNASretrain240.yaml, SPOSretr
 ### Citation
 If you find our codes or trined models useful in your research, please consider to star our repo and cite our paper:
 
-    @inproceedings{{hu2020dsnas,
+    @inproceedings{hu2020dsnas,
       title={DSNAS: Direct Neural Architecture Search without Parameter Retraining},
       author={Hu, Shoukang and Xie, Sirui and Zheng, Hehui and Liu, Chunxiao and Shi, Jianping and Liu, Xunying and Lin, Dahua},
       booktitle={The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
