@@ -43,7 +43,7 @@ python -m torch.distributed.launch --nproc_per_node=8 train_imagenet.py \
 --remark 'search_arch_lr_1e-3_decay_0' &
 ```
 
-Or you can try a more stable version of searching command:
+Or you can try a more stable version of the searching command:
 ```shell
 python -m torch.distributed.launch --nproc_per_node=8 train_imagenet.py \
 --SinglePath --bn_affine --flops_loss --flops_loss_coef 1e-6 --seed 48 --use_dropout --pretrain_epoch {pretrain_num} --gen_max_child --early_fix_arch --config configs/SinglePath240epoch_arch_lr_1e-3_decay_0.yaml \
