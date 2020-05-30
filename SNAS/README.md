@@ -34,10 +34,6 @@ Multi GPU setup to search the architecture with 20 cells:
 python -m torch.distributed.launch --nproc_per_node=8 train_search.py --snas --epochs 150 --seed 6 --layer 20 --init_channels 36 --batch_size 72  --temp 1 --temp_min 0.03 \
 --nsample 1 --distributed --temp_annealing --resource_efficient --resource_lambda 1.5e-3 --log_penalty \
 --drop_path_prob 2e-1 --method 'reparametrization'  --loss --remark "snas_order_layer_20_batch_14_drop_0.1_error_lnR_1.5e-3_reparam_gpu_8" &
-
-python -m torch.distributed.launch --nproc_per_node=8 train_search.py --snas --epochs 150 --seed 6 --layer 20 --init_channels 36 --batch_size 112 --temp 1 --temp_min 0.03 \
---nsample 1 --distributed --temp_annealing --resource_efficient --resource_lambda 1.5e-3 --log_penalty --drop_path_prob 2e-1 \
---method 'discrete'  --loss --remark "snas_order_layer_20_batch_14_drop_0.1_error_lnR_1.5e-3_discrete_gpu_8" &
 ```
 Note that we formulate the resource constraint with three methods, i.e., reparametrization, discrete and policy gradient.
 
