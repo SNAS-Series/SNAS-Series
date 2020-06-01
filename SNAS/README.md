@@ -26,7 +26,7 @@ Single GPU setup to search the architecture with 8 cells:
 ```
 python train_search.py --snas --epochs 150 --seed 6 --layer 8 --init_channels 16 --temp 1 \
 --temp_min 0.03 --nsample 1 --temp_annealing --resource_efficient \
---resource_lambda 1e-2 --log_penalty --drop_path_prob 3e-1 --method 'reparametrization' \
+--resource_lambda 1.5e-3 --log_penalty --drop_path_prob 3e-1 --method 'reparametrization' \
 --loss --remark "snas_order_layer_8_batch_64_drop_0.3_error_lnR_1e-2_reparam_gpu_1" &
 ```
 Multi GPU setup to search the architecture with 20 cells:
