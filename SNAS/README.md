@@ -35,7 +35,7 @@ python -m torch.distributed.launch --nproc_per_node=8 train_search.py --snas --e
 --nsample 1 --distributed --temp_annealing --resource_efficient --resource_lambda 1.5e-3 --log_penalty \
 --drop_path_prob 2e-1 --method 'reparametrization'  --loss --remark "snas_order_layer_20_batch_14_drop_0.1_error_lnR_1.5e-3_reparam_gpu_8" &
 ```
-Note that we formulate the resource constraint with three methods, i.e., reparametrization, discrete and policy gradient.
+Note that we implement the resource constraint with three methods, i.e., reparametrization, discrete and policy gradient.
 
 ## Architecture evaluation (using full-sized models)
 ```
