@@ -20,6 +20,10 @@ By Sirui Xie*, Shoukang Hu*, Xinjiang Wang, Chunxiao Liu, Jianping Shi, Xunying 
 * some codes are borrowed from **DARTS** ([https://github.com/quark0/darts]).
 
 ### Experiments on DSNAS
+```shell
+cd snas
+```
+
 Run experiments of 8 normal cells to observe patterns: **Growing tendency**  and **Width preference** (updating both network parameters and architecture parameters) 
 ```shell
 bash train.sh dsnas 8 150 96 order 4 4 order order order order order 8NormalCell
@@ -51,6 +55,9 @@ python plot_loss_entropy_cost.py 'correct loss' 150(epoch_num)
 ```
 
 ### Bi-level Experiments on DARTS
+```shell
+cd darts/cnn
+```
 
 Run experiments of 8 normal cells to observe patterns: **Catastrophic failure** (updating both network parameters and architecture parameters) 
 ```shell
