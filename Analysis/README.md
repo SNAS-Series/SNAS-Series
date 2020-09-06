@@ -68,12 +68,13 @@ bash train_darts_loss_entropy_cost.sh 8 50 64 2 2 fix_edge4_noskip random_sample
 ```
 
 Copy plot_loss_entropy_cost.py to the directory to plot the figure(relationship of loss, entropy and cost in the appendix)
-Search set
+
+**Search set**
 ```shell
 python plot_loss_entropy_cost.py 'search correct loss' 50 search
 ```
 
-Training set
+**Training set**
 ```shell
 python plot_loss_entropy_cost.py 'train correct loss' 50 train
 ```
