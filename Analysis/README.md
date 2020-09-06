@@ -1,21 +1,8 @@
-# DSNAS
+# ANALYSIS
 
-This repository contains the PyTorch implementation of the paper **DSNAS: 
-Direct Neural Architecture Search without Parameter Retraining**, CVPR 2020.
+This repository contains the PyTorch implementation of the paper **Understanding the wiring evolution in differentiable neural architecture search**.
 
-By Shoukang Hu*, Sirui Xie*, Hehui Zheng, Chunxiao Liu, Jianping Shi, Xunying Liu, Dahua Lin.
-
-[Paper-arxiv](https://arxiv.org/abs/2002.09128)
-
-## Supernet Architecture
-<p align="center">
-    <img src="img/supernet_arch.png" height="400"/>
-</p>
-
-## Results
-<p align="center">
-    <img src="img/search_result.png" height="400"/>
-</p>
+By Sirui Xie*, Shoukang Hu*, Xinjiang Wang, Chunxiao Liu, Jianping Shi, Xunying Liu, Dahua Lin.
 
 ## Getting Started
 * Install [PyTorch](http://pytorch.org/)
@@ -30,71 +17,65 @@ By Shoukang Hu*, Sirui Xie*, Hehui Zheng, Chunxiao Liu, Jianping Shi, Xunying Li
   * torchvision>=0.2.1
   * tensorboardX
   
-* some codes are borrowed from **Single Path One-Shot NAS** ([https://github.com/megvii-model/ShuffleNet-Series/tree/master/OneShot], one baseline in our paper) and **Sparse Switchable Normalization** [https://github.com/switchablenorms/Sparse_SwitchNorm]
+* some codes are borrowed from **DARTS** ([https://github.com/quark0/darts]).
 
-### Data Preparation
-- Download the ImageNet dataset and put them into the `{repo_root}/data/imagenet`
-
-### Usage
-Search:
+### Experiemnts on DSNAS
+Run experiments of 8 normal cells to observe patterns: **Growing tendency**  and **Width preference** (updating both network parameters and architecture parameters) 
 ```shell
-python -m torch.distributed.launch --nproc_per_node=8 train_imagenet.py \
---SinglePath --bn_affine --flops_loss --flops_loss_coef 1e-6 --seed 48 --use_dropout --gen_max_child --early_fix_arch --config configs/SinglePath240epoch_arch_lr_1e-3_decay_0.yaml \
---remark 'search_arch_lr_1e-3_decay_0' &
+bash train.sh dsnas 8 150 96 order 4 4 order order order order order 8NormalCell
 ```
 
-Or you can try a more stable version of the searching command:
+Run experiments of 8 normal minimal cells to observe patterns: **Growing tendency**  and **Width preference** (updating both network parameters and architecture parameters) 
 ```shell
-python -m torch.distributed.launch --nproc_per_node=8 train_imagenet.py \
---SinglePath --bn_affine --flops_loss --flops_loss_coef 1e-6 --seed 48 --use_dropout --pretrain_epoch {pretrain_num} --gen_max_child --early_fix_arch --config configs/SinglePath240epoch_arch_lr_1e-3_decay_0.yaml \
---remark 'search_arch_lr_1e-3_decay_0' &
+bash train.sh dsnas 8 150 96 order 2 2 order order order order order 8NormalCell
 ```
-Note that {pretrain_num} can be set as 15 or 30, and you can disable the dropout layer befrore the linear output layer by not using --use_dropout.
 
-After searching the Supernet with the early-stop strategy for {num} (default value: 80) peochs, we continue the searching stage with the following command: 
+Calculate cost mean statistics for each operation of a minimal cell at initialization and near theta’s convergence (figure 4 in the paper)
 ```shell
-python -m torch.distributed.launch --nproc_per_node=8 train_imagenet_child.py \
---SinglePath --bn_affine --reset_bn_stat --seed 48 --config configs/{config_name} \
---remark {remark_name} &
+bash train_cal_cost.sh 2020-02-19 dsnas 1 96 2 2 dsnas
 ```
-Note that you need to add your current model path into the checkpoint_path of {config_name} (refer to configs/DSNAS_search_from_search_20191029_135429_80epoch.yaml). And we disable dropout layer to get a more stable result (you can use dropout to get better results, but you may also introduce a larger variance to the results). 
 
-Retrain:
+#delete edge 0, edge 2, edge (1,3), update theta by using random sample and calaulate average cost mean statistics per epoch (figure 10b in the paper)
 ```shell
-python -m torch.distributed.launch --nproc_per_node=8 train_imagenet_child.py \
---SinglePath --retrain --bn_affine --reset_bn_stat --seed 48 --config configs/{config_name} \
---remark {remark_name} &
+bash train.sh dsnas 1 150 96 order 2 1 del_edge0 del_edge2 fix_edge1_op7 random_sample random_sample del02_fix_1op7
 ```
-Note that you need to add your current model path into the checkpoint_path of {config_name} (refer to configs/DSNAS_retrain_from_search_20191029_135429_80epoch.yaml)
 
-Tensorboard visualization: 
+Relationship of cost, loss and entropy 
 ```shell
-tensorboard --logdir=runs/ --port={port_num}
+bash train_sample_cost_entropy_loss.sh dsnas 1 150 96 order 2 2 fix_edge4_noskip random_sample 4_noskip_cal_cost
 ```
-Note that all the experiments above will save the tensorboard log file in runs/ directory
 
-### Trained models
-| Model | Top-1<sup>*</sup> | Top-5<sup>*</sup> | Download | MD5 |  
-| :----:  | :--: | :--:  | :--:  | :--:  |  
-|DSNASsearch240 | 74.4% | 91.54% |[[Google Drive]](https://drive.google.com/open?id=1gfTgqgmHjpsJmB3Nq248FCuXXhIFaUou)  [[Baidu Pan (pin:f5c6)]](https://pan.baidu.com/s/1RIYQ1GTbs9KmvDwgL__mcQ)|c10b463274a0eac5a5ee47418ff15d34|  
-|DSNASretrain240 | 74.3% | 91.90% |[[Google Drive]](https://drive.google.com/open?id=1DlByBmUhaqzyKC_10MFxfTKbyFnYr6rX)  [[Baidu Pan (pin:6grj)]](https://pan.baidu.com/s/1NOK4jQNjJxUXSlmv4w4MzA)|459098b27704524927fbd8ed34570103|  
-|SPOSretrain240  | 74.3% | 91.78% |[[Google Drive]](https://drive.google.com/open?id=1nBdQf6G0l-NXTKWa0jjezY1hlsSA61lR)  [[Baidu Pan (pin:cj97)]](https://pan.baidu.com/s/1hemPkcvFwRtQCO5oM0m-YQ)|3350e439c1f75cbf61c4664c21d821c4|  
-
-Evaluation:
+Copy plot_loss_entropy_cost.py to the experimental directory above to plot the figure(relationship of loss, entropy and cost in the appendix)
 ```shell
-python -m torch.distributed.launch --nproc_per_node=8 eval_imagenet.py \
---SinglePath --config configs/{config_name} --remark {remark_name} &
+python plot_loss_entropy_cost.py 'correct loss' 150(epoch_num)
 ```
-where {config_name} could be DSNASsearch240.yaml, DSNASretrain240.yaml, SPOSretrain240.yaml
 
-### Citation
-If you find our codes or trined models useful in your research, please consider to star our repo and cite our paper:
+### Bi-level Experiemnts on DARTS
 
-    @inproceedings{hu2020dsnas,
-      title={DSNAS: Direct Neural Architecture Search without Parameter Retraining},
-      author={Hu, Shoukang and Xie, Sirui and Zheng, Hehui and Liu, Chunxiao and Shi, Jianping and Liu, Xunying and Lin, Dahua},
-      booktitle={The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-      month = {June},
-      year={2020}
-    }
+#Run experiments of 8 normal cells to observe patterns: **Catastrophic failure** (updating both network parameters and architecture parameters) 
+```shell
+bash train_darts.sh 8 96 4 4 8NormalCell
+```
 
+#Run experiments of 8 minimal cells to observe the pattern: **Catastrophic failure** (updating both network parameters and architecture parameters) 
+```shell
+bash train_darts.sh 8 96 2 2 8NormalCell
+```
+
+#Relationship of cost, loss and entropy 
+```shell
+bash train_darts_loss_entropy_cost.sh 8 50 64 2 2 fix_edge4_noskip random_sample 4_noskip_cal_cost
+```
+
+Copy plot_loss_entropy_cost.py to the directory to plot the figure(relationship of loss, entropy and cost in the appendix)
+Search set
+```shell
+python plot_loss_entropy_cost.py 'search correct loss' 50 search
+```
+
+Training set
+```shell
+python plot_loss_entropy_cost.py 'train correct loss' 50 train
+```
+
+### Main results are shown above. You can also modify the code to easily reproduce other results in the paper.
