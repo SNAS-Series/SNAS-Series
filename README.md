@@ -30,6 +30,7 @@ By Shoukang Hu*, Sirui Xie*, Hehui Zheng, Chunxiao Liu, Jianping Shi, Xunying Li
 Figure: Visualization for forward pass and gradient back-propagation within DSNAS.
 </p>
 
-**Understanding the wiring evolution in differentiable neural architecture search**
+**Analysis:
+Understanding the wiring evolution in differentiable neural architecture search**
 
 By Sirui Xie*, Shoukang Hu*, Xinjiang Wang, Chunxiao Liu, Jianping Shi, Xunying Liu, Dahua Lin.
