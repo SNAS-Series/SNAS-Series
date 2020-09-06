@@ -35,7 +35,7 @@ Calculate cost mean statistics for each operation of a minimal cell at initializ
 bash train_cal_cost.sh 2020-02-19 dsnas 1 96 2 2 dsnas
 ```
 
-#delete edge 0, edge 2, edge (1,3), update theta by using random sample and calaulate average cost mean statistics per epoch (figure 10b in the paper)
+Delete edge 0, edge 2, edge (1,3), update theta by using random sample and calaulate average cost mean statistics per epoch (figure 10b in the paper)
 ```shell
 bash train.sh dsnas 1 150 96 order 2 1 del_edge0 del_edge2 fix_edge1_op7 random_sample random_sample del02_fix_1op7
 ```
@@ -52,17 +52,17 @@ python plot_loss_entropy_cost.py 'correct loss' 150(epoch_num)
 
 ### Bi-level Experiemnts on DARTS
 
-#Run experiments of 8 normal cells to observe patterns: **Catastrophic failure** (updating both network parameters and architecture parameters) 
+Run experiments of 8 normal cells to observe patterns: **Catastrophic failure** (updating both network parameters and architecture parameters) 
 ```shell
 bash train_darts.sh 8 96 4 4 8NormalCell
 ```
 
-#Run experiments of 8 minimal cells to observe the pattern: **Catastrophic failure** (updating both network parameters and architecture parameters) 
+Run experiments of 8 minimal cells to observe the pattern: **Catastrophic failure** (updating both network parameters and architecture parameters) 
 ```shell
 bash train_darts.sh 8 96 2 2 8NormalCell
 ```
 
-#Relationship of cost, loss and entropy 
+Relationship of cost, loss and entropy 
 ```shell
 bash train_darts_loss_entropy_cost.sh 8 50 64 2 2 fix_edge4_noskip random_sample 4_noskip_cal_cost
 ```
