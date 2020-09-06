@@ -49,7 +49,7 @@ Relationship of cost, loss and entropy
 bash train_sample_cost_entropy_loss.sh dsnas 1 150 96 order 2 2 fix_edge4_noskip random_sample 4_noskip_cal_cost
 ```
 
-Copy plot_loss_entropy_cost.py to the experimental directory above to plot the figure(relationship of loss, entropy and cost in the appendix)
+Copy plot_loss_entropy_cost.py to the experimental directory above to plot the figure (relationship of loss, entropy and cost in the appendix)
 ```shell
 python plot_loss_entropy_cost.py 'correct loss' 150(epoch_num)
 ```
@@ -74,7 +74,7 @@ Relationship of cost, loss and entropy
 bash train_darts_loss_entropy_cost.sh 8 50 64 2 2 fix_edge4_noskip random_sample 4_noskip_cal_cost
 ```
 
-Copy plot_loss_entropy_cost.py to the experimental directory above to plot the figure(relationship of loss, entropy and cost in the appendix)
+Copy plot_loss_entropy_cost.py to the experimental directory above to plot the figure (relationship of loss, entropy and cost in the appendix)
 
 **Search set**
 ```shell
