@@ -34,3 +34,5 @@ Figure: Visualization for forward pass and gradient back-propagation within DSNA
 Understanding the wiring evolution in differentiable neural architecture search**
 
 By Sirui Xie*, Shoukang Hu*, Xinjiang Wang, Chunxiao Liu, Jianping Shi, Xunying Liu, Dahua Lin.
+
+[Paper-arxiv](https://arxiv.org/abs/2009.01272)
