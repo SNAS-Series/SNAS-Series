@@ -89,3 +89,15 @@ python plot_loss_entropy_cost.py 'train correct loss' 50 train
 ```
 
 ### Main results are shown above. You can also modify the code to easily reproduce other results in the paper.
+
+### Citation
+If you find our codes or trined models useful in your research, please consider to star our repo and cite our paper:
+
+    @misc{xie2020understanding,
+        title={Understanding the wiring evolution in differentiable neural architecture search},
+        author={Sirui Xie and Shoukang Hu and Xinjiang Wang and Chunxiao Liu and Jianping Shi and Xunying Liu and Dahua Lin},
+        year={2020},
+        eprint={2009.01272},
+        archivePrefix={arXiv},
+        primaryClass={cs.LG}
+    }
