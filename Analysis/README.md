@@ -4,6 +4,8 @@ This repository contains the PyTorch implementation of the paper **Understanding
 
 By Sirui Xie*, Shoukang Hu*, Xinjiang Wang, Chunxiao Liu, Jianping Shi, Xunying Liu, Dahua Lin.
 
+[Paper-arxiv](https://arxiv.org/abs/2009.01272)
+
 ## Getting Started
 * Install [PyTorch](http://pytorch.org/)
 * Clone the repo:
