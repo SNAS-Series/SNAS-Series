@@ -239,7 +239,7 @@ def main():
 
     lr_scheduler = LRScheduler(optimizer, niters, args)
 
-    for epoch in range(start_epoch, args.epochs):
+    for epoch in range(start_epoch, 85):
         train_sampler.set_epoch(epoch)
         
         if args.early_fix_arch:
