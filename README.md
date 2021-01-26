@@ -31,8 +31,15 @@ Figure: Visualization for forward pass and gradient back-propagation within DSNA
 </p>
 
 **ANALYSIS:
-Understanding the wiring evolution in differentiable neural architecture search**
+Understanding the wiring evolution in differentiable neural architecture search**, AISTATS 2021.
 
 By Sirui Xie*, Shoukang Hu*, Xinjiang Wang, Chunxiao Liu, Jianping Shi, Xunying Liu, Dahua Lin.
 
 [Paper-arxiv](https://arxiv.org/abs/2009.01272)
+
+<p align="center">
+<img src="img/cost_gradient.gif" alt="dsnas" width="38%">
+</p>
+<p align="center">
+Figure: Visualization for cost and gradient back-propagation within cell-based differentiable NAS.
+</p>
