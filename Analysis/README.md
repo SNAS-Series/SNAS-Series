@@ -1,6 +1,6 @@
 # ANALYSIS
 
-This repository contains the PyTorch implementation of the paper **Understanding the wiring evolution in differentiable neural architecture search**.
+This repository contains the PyTorch implementation of the paper **Understanding the wiring evolution in differentiable neural architecture search**, AISTATS 2021.
 
 By Sirui Xie*, Shoukang Hu*, Xinjiang Wang, Chunxiao Liu, Jianping Shi, Xunying Liu, Dahua Lin.
 
